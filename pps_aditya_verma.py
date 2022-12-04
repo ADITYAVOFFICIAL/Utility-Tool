@@ -1,15 +1,19 @@
-# import random
-# from time import sleep
-# printertimer = ["\n\n\nLOADING THE PROGRAM\n", "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n", "3\n",
-#                 "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n", "2\n", "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n", "1\n", "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n\n"]
-# for mess in printertimer:
-#     print(mess)
-#     sleep(0.2)
+from tkinter import *
+from tkinter.ttk import *
+import random
+from time import sleep
+
+printertimer = ["\n\n\nLOADING THE PROGRAM\n", "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n", "3\n",
+                "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n", "2\n", "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n", "1\n", "🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨 🚨\n\n"]
+for mess in printertimer:
+    print(mess)
+    sleep(0.2)
 
 
 def calculator():
     import math
-    print("🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮 WELCOME TO THE CALCULATOR PROGRAM 🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮\n\n")
+    print(
+        "🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮 WELCOME TO THE CALCULATOR PROGRAM 🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮🧮\n\n")
     print('''Available Operations
 1. Add
 2. Subtract
@@ -26,23 +30,23 @@ Adv Extras
             if calc_input == 1:
                 x = float(input("Enter first number: "))
                 y = float(input("Enter second number: "))
-                addn = x+y
+                addn = x + y
                 print(f'The sum is : {addn}')
             elif calc_input == 2:
                 x = float(input("Enter first number: "))
                 y = float(input("Enter second number: "))
-                subn = x-y
+                subn = x - y
                 print(f'The difference is : {subn}')
             elif calc_input == 3:
                 x = float(input("Enter first number: "))
                 y = float(input("Enter second number: "))
-                divn = x/y
+                divn = x / y
                 divq = x % y
                 print(f'\nThe remainder is : {divn}\nThe quotient is : {divq}')
             elif calc_input == 4:
                 x = float(input("Enter first number: "))
                 y = float(input("Enter second number: "))
-                muln = x*y
+                muln = x * y
                 print(f'The product is : {muln}')
             elif calc_input == 5:
                 x = float(input("Enter the number: "))
@@ -50,11 +54,11 @@ Adv Extras
                 print(f'The square root is : {sqrn}')
             elif calc_input == 6:
                 x = float(input("Enter the number: "))
-                sqn = x*x
+                sqn = x * x
                 print(f'The square is : {sqn}')
             elif calc_input == 7:
                 x = float(input("Enter the number: "))
-                cn = x*x*x
+                cn = x * x * x
                 print(f'The cube is : {cn}')
             repeat = input("\nCalculate again? (y/n): ")
             if repeat == "n" or repeat == 'no' or repeat == 'NO' or repeat == 'N':
@@ -65,11 +69,53 @@ Adv Extras
             break
 
 
+def currentclock():
+
+    from time import strftime
+    root = Tk()
+    root.title('Time Clock')
+
+    def time():
+        string = strftime('%H:%M:%S %p')
+        lbl.config(text=string)
+        lbl.after(1000, time)
+    lbl = Label(root, font=('lucida', 70, 'bold'),
+                background='black',
+                foreground='cyan')
+    lbl.pack(anchor='center')
+    time()
+    mainloop()
+
+
+def storymaker():
+    print("📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖 STORY MAKER 📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖")
+    import random
+    readername = input("\nHello Reader\n\nWhat is your name? >>>  ")
+    print("\nHello "+readername)
+    names = ["Aditya Verma", "Harsh", "Kamal",
+             "Dipayan", "Dhruv", "Krishna", "Sanjay", "Ishan", "Sahil", "Piyush", "Shrish"]  # contains names
+    roles = ["Chemical Engineer", "Mechanical Engineer",
+             "Electrical Engineer", "Software Engineer", "Aeronautical engineer", "Computer Engineer", "Biotech Engineer", "Material Engineer"]  # contains roles or jobs
+    city = ["Mumbai", "New York", "Delhi", "Tokyo", "Berlin", "Amsterdam", "Kentucky",
+            "Kolkata", "Srinagar", "Washington DC", "Wisconsin", "London", "Yorkshire", "California"]
+    pagei = [*range(18, 45, 1)]
+    sal = [*range(10, 55, 1)]
+    money_p = random.choice(sal)
+    page = random.choice(pagei)
+    randomname = random.choice(names)
+    randomrole = random.choice(roles)
+    randomcity = random.choice(city)
+    print(
+        f'\nOnce upon a time, there was a {randomrole} whose name was {randomname}, aged {page}\nwho lived in {randomcity} with his friends and family. He has a package of {money_p} Lacs.\n')
+    print("📖📖📖📖📖📖📖📖📖📖📖📖📖📖 END OF PROGRAM 📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖📖")
+
+
 def winsim():
     import maskpass
     import datetime
     from time import sleep
-    print('''++++++++++++++++++++++++++++++++++++++++++ WELCOME TO WINDOWS 11 LOGIN SIMULATOR ++++++++++++++++++++++++++++++++++++++++++\n''')
+    print(
+        '''🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟 WELCOME TO WINDOWS 11 LOGIN SIMULATOR 🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟\n''')
     password = 'billygates'
     tries = ""
     counter = 0
@@ -85,8 +131,8 @@ def winsim():
                 print('\nYou have entered a wrong password')
                 print(
                     f'Enter the correct password to Login [{count} Tries Left]\n')
-            counter = counter+1
-            count = count-1
+            counter = counter + 1
+            count = count - 1
         else:
             out = True
     if out:
@@ -98,14 +144,16 @@ def winsim():
             print(mess)
             sleep(2)
     now = datetime.datetime.now()
-    print(now.strftime("Login Acitivity Detected at : %Y-%m-%d %H:%M:%S\n"))
-    print('''++++++++++++++++++++++++++++++++++++++++++ END OF THE SIM +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n''')
+    print(now.strftime("Login Acitivity Detected on : %Y-%m-%d at %H:%M:%S\n"))
+    print(
+        '''🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟 END OF THE SIM 🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟🪟\n''')
     return
 
 
 def drive():
     import random
-    print('''🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 WELCOME DRIVING AUTHENTICATOR 🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗\n''')
+    print(
+        '''🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 WELCOME DRIVING AUTHENTICATOR 🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗\n''')
     age = abs(int(input("Enter your age >>> ")))
     if age <= 17:
         print("\nYou are restricted from driving a vehicle\n\n")
@@ -120,11 +168,13 @@ def drive():
             print("\nYou are restricted from driving a vehicle\n\n")
     else:
         print("Invalid Input || Program Exiting\n\n\n")
-    print('''🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 END OF THE DRIVING AUTHENTICATOR 🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗\n''')
+    print(
+        '''🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗 END OF THE DRIVING AUTHENTICATOR 🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗🚗\n''')
 
 
 def temp():
-    print('🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️  TEMPRATURE CONVERTER 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️')
+    print(
+        '🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️  TEMPRATURE CONVERTER 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️')
 
     print('''\nThis program support interconversions of tempratures\n
 1. Celsius [c]
@@ -136,37 +186,47 @@ def temp():
         fin = input("Convert to >>> ")
         initemp = float(input("Enter the value >>> "))
         if ini == 'c' and fin == 'f':
-            cf = initemp*9/5+32
-            print(f"\nThe temprature in Fahrenheit is : {'%.3f'%cf} °F")
+            cf = initemp * 9 / 5 + 32
+            print(f"\nThe temprature in Fahrenheit is : {'%.3f' % cf} °F")
         elif ini == 'c' and fin == 'k':
-            ck = initemp+273.15
-            print(f"\nThe temprature in Kelvin is : {'%.3f'%ck} °K")
+            ck = initemp + 273.15
+            print(f"\nThe temprature in Kelvin is : {'%.3f' % ck} °K")
         elif ini == 'c' and fin == 'r':
-            cr = initemp*9/5+491.672
-            print(f"\nThe temprature in Rankine is : {'%.3f'%cr} °R")
+            cr = initemp * 9 / 5 + 491.672
+            print(f"\nThe temprature in Rankine is : {'%.3f' % cr} °R")
         elif ini == 'f' and fin == 'c':
-            fc = (initemp-32)*5/9
-            print(f"\nThe temprature in Celsius is : {'%.3f'%fc} °C")
+            fc = (initemp - 32) * 5 / 9
+            print(f"\nThe temprature in Celsius is : {'%.3f' % fc} °C")
         elif ini == 'f' and fin == 'k':
-            fk = (initemp-32)*5/9+273.15
-            print(f"\nThe temprature in Kelvin is : {'%.3f'%fk} °K")
+            fk = (initemp - 32) * 5 / 9 + 273.15
+            print(f"\nThe temprature in Kelvin is : {'%.3f' % fk} °K")
         elif ini == 'f' and fin == 'r':
-            fr = initemp+459.67
-            print(f"\nThe temprature in Rankine is : {'%.3f'%fr} °R")
+            fr = initemp + 459.67
+            print(f"\nThe temprature in Rankine is : {'%.3f' % fr} °R")
         elif ini == 'r' and fin == 'c':
-            rc = (initemp - 491.67) * 5/9
-            print(f"\nThe temprature in Celsius is : {'%.3f'%rc} °C")
+            rc = (initemp - 491.67) * 5 / 9
+            print(f"\nThe temprature in Celsius is : {'%.3f' % rc} °C")
         elif ini == 'r' and fin == 'k':
-            rk = initemp*5/9
-            print(f"\nThe temprature in Kelvin is : {'%.3f'%rk} °K")
+            rk = initemp * 5 / 9
+            print(f"\nThe temprature in Kelvin is : {'%.3f' % rk} °K")
         elif ini == 'r' and fin == 'f':
-            rf = initemp-459.67
-            print(f"\nThe temprature in Fahrenheit is : {'%.3f'%rf} °F")
+            rf = initemp - 459.67
+            print(f"\nThe temprature in Fahrenheit is : {'%.3f' % rf} °F")
         repeat = input("\nConvert again? (y/n): ")
         if repeat == "n" or repeat == 'no' or repeat == 'NO' or repeat == 'N':
             print(
                 "\n 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️  END OF PROGRAM 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️ 🌡️\n\n")
             break
+
+
+def shorty():
+    print('''\n\n🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗 LINK SHORTNER 🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗''')
+    import pyshorteners
+    long_url = input("\nEnter the URL to shorten >>> ")
+    userinput_tiny = pyshorteners.Shortener()
+    shorted = userinput_tiny.tinyurl.short(long_url)
+    print("\nThe Shortened URL is: " + shorted)
+    print('''\n\n🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗 END OF PROGRAM 🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗🔗''')
 
 
 def passgen():
@@ -209,24 +269,26 @@ def passgen():
 
 
 def bmi():
-    print('''❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹 WELCOME TO THE BMI CALCULATOR ❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹\n\nALL ENTRIES TO BE MADE IN METRIC UNITS\nHeight in Cms\nWeight in Kgs''')
+    print(
+        '''❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹 WELCOME TO THE BMI CALCULATOR ❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹\n\nALL ENTRIES TO BE MADE IN METRIC UNITS\nHeight in Cms\nWeight in Kgs''')
 
     bmi_h = float(input("\nEnter your height >>> "))
     bmi_w = float(input("Enter your weight >>> "))
-    heighm = bmi_h/100
-    bmipre = heighm*heighm
-    bmical = bmi_w/bmipre
+    heighm = bmi_h / 100
+    bmipre = heighm * heighm
+    bmical = bmi_w / bmipre
     if bmical < 18.5:
-        print(f"\nYour BMI Value is {'%.2f'%bmical} and you are Underweight")
+        print(f"\nYour BMI Value is {'%.2f' % bmical} and you are Underweight")
     elif bmical >= 18.5 and bmical <= 24.9:
-        print(f"\nYour BMI Value is {'%.2f'%bmical} and your weight is Normal")
+        print(
+            f"\nYour BMI Value is {'%.2f' % bmical} and your weight is Normal")
     if bmical >= 25 and bmical <= 29.9:
-        print(f"\nYour BMI Value is {'%.2f'%bmical} and you are Overweight")
+        print(f"\nYour BMI Value is {'%.2f' % bmical} and you are Overweight")
     if bmical >= 30 and bmical <= 34.9:
-        print(f"\nYour BMI Value is {'%.2f'%bmical} and you are Obese")
+        print(f"\nYour BMI Value is {'%.2f' % bmical} and you are Obese")
     if bmical > 35:
         print(
-            f"\nYour BMI Value is {'%.2f'%bmical} and you are Extremely Obese")
+            f"\nYour BMI Value is {'%.2f' % bmical} and you are Extremely Obese")
 
     from time import sleep
     printertimer = ["\n\nRANGES", "1. Underweight = < 18.5", "2. Normal = 18.5 to 24.9",
@@ -234,7 +296,8 @@ def bmi():
     for mess in printertimer:
         print(mess)
         sleep(0.4)
-    print('''❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹 END OF PROGRAM ❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹\n\n\n''')
+    print(
+        '''❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹 END OF PROGRAM ❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹❤️‍🩹\n\n\n''')
 
 
 def roller():
@@ -298,11 +361,14 @@ print('''>>>MENU<<<\n\nENTER CORRESPONDING NUMBER FOR ANY ONE OF THE FOLLOWING O
 5. BMI Calculator
 6. Secure Password Generator
 7. Dice Roller
-8. EXIT\n''')
+8. Clock
+9. Story Maker
+10. URL Shortner
+11. EXIT\n''')
 user_input = int(input("Enter your option here : "))
 print(f'Entered Input is : {user_input}\n')
 print('''\n-------------------------------------------------------------------------------------------------------''')
-print("----------------------------------------CREATED BY ADITYA VERMA----------------------------------------")
+print("----------------------------------------CREATED BY ADITYA VERMA AND PARAS------------------------------")
 print('''-------------------------------------------------------------------------------------------------------\n''')
 if user_input == 1:
     calculator()
@@ -319,6 +385,12 @@ elif user_input == 6:
 elif user_input == 7:
     roller()
 elif user_input == 8:
+    currentclock()
+elif user_input == 9:
+    storymaker()
+elif user_input == 10:
+    shorty()
+elif user_input == 11:
     print("Program exiting....\n\n")
 else:
     print("Invalid Input || Program Exiting\n\n\n")
