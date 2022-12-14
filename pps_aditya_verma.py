@@ -10,6 +10,18 @@ for mess in printertimer:
     sleep(0.2)
 
 
+def qrmaker():
+    import qrcode
+    print(
+        "🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️   WELCOME TO THE QR MAKER 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ \n\nExample input -=> google.com or youtube.com")
+    user_url = input("Enter your URL here >>> ")
+    img = qrcode.make(user_url)
+    img.save("C:/Users/adity/Desktop/qr_maker_aditya_paras.jpg")
+    print("\nThe QR image has been saved to your Desktop 💻 ")
+    print(
+        "\n🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️  END OF PROGRAM 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️ 🎞️\n\n")
+
+
 def calculator():
     import math
     print(
@@ -364,6 +376,7 @@ print('''>>>MENU<<<\n\nENTER CORRESPONDING NUMBER FOR ANY ONE OF THE FOLLOWING O
 8. Clock
 9. Story Maker
 10. URL Shortner
+11. QR Maker
 11. EXIT\n''')
 user_input = int(input("Enter your option here : "))
 print(f'Entered Input is : {user_input}\n')
@@ -391,6 +404,8 @@ elif user_input == 9:
 elif user_input == 10:
     shorty()
 elif user_input == 11:
+    qrmaker()
+elif user_input == 12:
     print("Program exiting....\n\n")
 else:
     print("Invalid Input || Program Exiting\n\n\n")
